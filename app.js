@@ -21,7 +21,7 @@ document.getElementById('enable-notifications').addEventListener('click', () => 
     if (permission === 'granted') {
       console.log('Notification permission granted.');
       // トークンを取得
-      getToken(messaging, { vapidKey: 'YOUR_PUBLIC_VAPID_KEY' }).then(token => {
+      getToken(messaging, { vapidKey: 'BMsPynC8o8oHa6iTTNTEGrs5iIP5HR2vFTX4HibvNakB2qcNy7PKSRZ3TaRix4ukLaHzDZ1TIZL4m8WFwOfUjW8' }).then(token => {
         if (token) {
           console.log('FCM Token:', token);
           alert('Token acquired! Check the console for details.');
