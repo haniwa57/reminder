@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Push Notification App</title>
+  <title>Reminder App</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#000000">
-  <meta name="apple-mobile-web-app-capable" content="yes">
   <script type="module" src="app.js"></script>
 </head>
 <body>
-  <h1>Push Notification App</h1>
-  <p>プッシュ通知を有効化してテストしてください。</p>
-  <button id="enable-notifications">Enable Notifications</button>
+  <h1>Reminder App</h1>
+  <form id="reminder-form">
+    <label for="reminder-title">Title:</label>
+    <input type="text" id="reminder-title" required>
+    <label for="reminder-time">Time:</label>
+    <input type="datetime-local" id="reminder-time" required>
+    <button type="submit">Set Reminder</button>
+  </form>
+  <ul id="reminder-list"></ul>
 </body>
 </html>
