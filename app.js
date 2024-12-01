@@ -3,12 +3,12 @@ import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/fireb
 
 // Firebaseの設定
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBs9IfLAObuzcBkVPo7guQSHGzcW7ALQls",
+  authDomain: "push-1cb3a.firebaseapp.com",
+  projectId: "push-1cb3a",
+  storageBucket: "push-1cb3a.appspot.com",
+  messagingSenderId: "837094307527",
+  appId: "1:837094307527:web:9787b7b5c91fc17d46b0e2"
 };
 
 // Firebase初期化
