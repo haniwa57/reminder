@@ -10,13 +10,18 @@
 </head>
 <body>
   <h1>Reminder App</h1>
-  <form id="reminder-form">
+  
+  <!-- 通知許可ボタン -->
+  <button id="enable-notifications">Enable Notifications</button>
+  
+  <form id="reminder-form" style="margin-top: 20px;">
     <label for="reminder-title">Title:</label>
     <input type="text" id="reminder-title" required>
     <label for="reminder-time">Time:</label>
     <input type="datetime-local" id="reminder-time" required>
     <button type="submit">Set Reminder</button>
   </form>
+  
   <ul id="reminder-list"></ul>
 </body>
 </html>
