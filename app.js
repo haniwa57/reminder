@@ -15,16 +15,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
-// トークンを取得して表示
-getToken(messaging, { vapidKey: 'YOUR_PUBLIC_VAPID_KEY' }).then(token => {
-  if (token) {
-    console.log('FCM Token:', token);
-    // ここでサーバーにトークンを保存する場合は追加コードを記述
-  } else {
-    console.log('No registration token available. Request permission to generate one.');
-  }
-}).catch(err => {
-  console.error('An error occurred while retrieving token. ', err);
+// 通知の許可をリクエスト
+document.getElementById('enable-notifications').addEventListener('click', () => {
+  Notification.requestPermission().then(permission => {
+    if (permission === 'granted') {
+      console.log('Notification permission granted.');
+      // トークンを取得
+      getToken(messaging, { vapidKey: 'YOUR_PUBLIC_VAPID_KEY' }).then(token => {
+        if (token) {
+          console.log('FCM Token:', token);
+          alert('Token acquired! Check the console for details.');
+        } else {
+          console.log('No registration token available. Request permission to generate one.');
+        }
+      }).catch(err => {
+        console.error('An error occurred while retrieving token. ', err);
+      });
+    } else {
+      console.log('Unable to get permission to notify.');
+    }
+  });
 });
 
 // フォアグラウンドで通知を受信
