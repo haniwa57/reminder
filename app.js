@@ -17,7 +17,7 @@ const messaging = getMessaging(app);
 // トークンを取得
 Notification.requestPermission().then(permission => {
   if (permission === 'granted') {
-    getToken(messaging, { vapidKey: 'YOUR_PUBLIC_VAPID_KEY' }).then(token => {
+    getToken(messaging, { vapidKey: 'BMsPynC8o8oHa6iTTNTEGrs5iIP5HR2vFTX4HibvNakB2qcNy7PKSRZ3TaRix4ukLaHzDZ1TIZL4m8WFwOfUjW8' }).then(token => {
       console.log('FCM Token:', token);
     });
   }
