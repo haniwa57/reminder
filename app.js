@@ -14,13 +14,23 @@ const firebaseConfig = {
 // Firebase初期化
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
-// トークンを取得
-Notification.requestPermission().then(permission => {
-  if (permission === 'granted') {
-    getToken(messaging, { vapidKey: 'BMsPynC8o8oHa6iTTNTEGrs5iIP5HR2vFTX4HibvNakB2qcNy7PKSRZ3TaRix4ukLaHzDZ1TIZL4m8WFwOfUjW8' }).then(token => {
-      console.log('FCM Token:', token);
-    });
-  }
+
+// 通知許可ボタンの処理
+document.getElementById('enable-notifications').addEventListener('click', () => {
+  Notification.requestPermission().then(permission => {
+    if (permission === 'granted') {
+      getToken(messaging, { vapidKey: 'BMsPynC8o8oHa6iTTNTEGrs5iIP5HR2vFTX4HibvNakB2qcNy7PKSRZ3TaRix4ukLaHzDZ1TIZL4m8WFwOfUjW8' }).then(token => {
+        console.log('FCM Token:', token);
+        alert('Notifications enabled!');
+      }).catch(err => {
+        console.error('Failed to get token:', err);
+      });
+    } else {
+      alert('Notifications are not enabled.');
+    }
+  }).catch(err => {
+    console.error('Notification permission request failed:', err);
+  });
 });
 
 // リマインダーを保存する配列
@@ -47,7 +57,7 @@ function scheduleReminder(reminder) {
     setTimeout(() => {
       new Notification(reminder.title, {
         body: `It's time for: ${reminder.title}`,
-        icon: 'icon-192x192.png'
+        icon: 'icon-192.png'
       });
     }, timeDifference);
   }
@@ -80,7 +90,7 @@ onMessage(messaging, payload => {
   const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body,
-    icon: 'icon-192x192.png'
+    icon: 'icon-192.png'
   };
   new Notification(notificationTitle, notificationOptions);
 });
