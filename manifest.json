@@ -1,7 +1,7 @@
 {
   "name": "Push Notification App",
   "short_name": "PushApp",
-  "start_url": "/",
+  "start_url": "/reminder/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
